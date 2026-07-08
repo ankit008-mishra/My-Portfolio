@@ -75,9 +75,11 @@ export default function InteractiveTerminal() {
       case 'socials':
         newLines.push(
           { text: 'COMMUNICATION PROTOCOLS:', type: 'success' },
-          { text: '  GitHub:   https://github.com/ankit92190mi', type: 'output' },
-          { text: '  Email:    ankit92190mi@gmail.com', type: 'output' },
-          { text: '  LinkedIn: https://linkedin.com/in/ankitmishra-eng', type: 'output' }
+          { text: '  GitHub:   https://github.com/ankit008-mishra', type: 'output' },
+          { text: '  Email:    conatct.ankit0mi@gmail.com', type: 'output' },
+          { text: '  LinkedIn: https://linkedin.com/in/ankitmishra-eng', type: 'output' },
+          { text: '  Instagram: https://instagram.com/your_username', type: 'output' },
+          { text: '  Telegram:  https://t.me/your_username', type: 'output' }
         );
         break;
 

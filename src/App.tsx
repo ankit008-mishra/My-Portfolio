@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Github, Linkedin, Mail, Cpu, Layers, ExternalLink, Box, Code, Sparkles, Server, Download, Briefcase } from 'lucide-react';
+import { Terminal, Github, Linkedin, Mail, Cpu, Layers, ExternalLink, Box, Code, Sparkles, Server, Download, Briefcase, Instagram, Send } from 'lucide-react';
 import ThreeDCard from './components/ThreeDCard';
 import InteractiveTerminal from './components/InteractiveTerminal';
 import CurrentProject from './components/CurrentProject';
@@ -7,9 +7,13 @@ import TechStack from './components/TechStack';
 import WorkTimeline from './components/WorkTimeline';
 import ContactSection from './components/ContactSection';
 import ProfileAvatar from './components/ProfileAvatar';
+import LoadingScreen from './components/LoadingScreen';
+import CustomCursor from './components/CustomCursor';
+import ScrollReveal from './components/ScrollReveal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'terminal' | 'visual'>('terminal');
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleDownloadResume = () => {
     // Generate a simple valid minimal PDF representing Ankit Mishra's Resume
@@ -34,7 +38,7 @@ BT
 0 -30 Td
 (Software Engineer | Systems Developer) Tj
 0 -20 Td
-(Email: ankit92190mi@gmail.com | GitHub: github.com/ankit92190mi) Tj
+(Email: conatct.ankit0mi@gmail.com | GitHub: github.com/ankit008-mishra) Tj
 0 -40 Td
 /F2 14 Tf
 (PROFESSIONAL SUMMARY) Tj
@@ -91,7 +95,10 @@ startxref
   };
 
   return (
-    <div id="portfolio-app" className="min-h-screen bg-[#020617] text-slate-100 font-sans relative overflow-x-hidden selection:bg-blue-500/30 selection:text-blue-200">
+    <>
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      <div id="portfolio-app" className={`min-h-screen bg-[#020617] text-slate-100 font-sans relative overflow-x-hidden selection:bg-blue-500/30 selection:text-blue-200 transition-opacity duration-1000 ${isLoading ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100'}`}>
+      <CustomCursor />
       
       {/* 3D Moving Perspective Grid Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -111,28 +118,30 @@ startxref
       {/* Modern High-Contrast Top Navigation Bar */}
       <nav id="navbar" className="sticky top-0 z-50 bg-slate-950/70 backdrop-blur-md border-b border-slate-900 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-mono font-bold text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]">
-              AM
-            </div>
-            <span className="font-mono text-sm tracking-tight font-bold text-slate-200">
-              ankitmishra<span className="text-blue-500">.dev</span>
+          <div className="flex items-center gap-2 group cursor-pointer transition-all duration-300">
+            <img 
+              src="https://github.com/ankit008-mishra.png" 
+              alt="Ankit Mishra Logo" 
+              className="w-8 h-8 rounded-lg object-cover shadow-[0_0_15px_rgba(37,99,235,0.4)] border border-blue-500/50 transition-all duration-300 group-hover:shadow-[0_0_25px_rgba(37,99,235,0.8)] group-hover:scale-105"
+            />
+            <span className="font-mono text-sm tracking-tight font-bold text-slate-200 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.9)]">
+              ankitmishra<span className="text-blue-500 transition-colors duration-300 group-hover:text-blue-300">.dev</span>
             </span>
           </div>
 
           {/* Nav Links */}
-          <div className="hidden sm:flex items-center gap-6 text-xs font-mono text-slate-400">
-            <a href="#about-hero" className="hover:text-blue-400 transition-colors">[about]</a>
-            <a href="#current-project-section" className="hover:text-blue-400 transition-colors">[current_work]</a>
-            <a href="#skills-section" className="hover:text-blue-400 transition-colors">[skills]</a>
-            <a href="#experience-section" className="hover:text-blue-400 transition-colors">[experience]</a>
-            <a href="#contact-section-anchor" className="hover:text-blue-400 transition-colors">[connect]</a>
+          <div className="hidden sm:flex items-center gap-1.5 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 shadow-lg backdrop-blur-xl">
+            <a href="#about-hero" className="px-4 py-1.5 rounded-full text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all duration-300">About</a>
+            <a href="#current-project-section" className="px-4 py-1.5 rounded-full text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all duration-300">Work</a>
+            <a href="#skills-section" className="px-4 py-1.5 rounded-full text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all duration-300">Skills</a>
+            <a href="#experience-section" className="px-4 py-1.5 rounded-full text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 transition-all duration-300">Experience</a>
+            <a href="#contact-section-anchor" className="px-4 py-1.5 rounded-full text-xs font-semibold text-blue-400 hover:text-white hover:bg-blue-600 hover:shadow-[0_0_15px_rgba(37,99,235,0.5)] transition-all duration-300">Connect</a>
           </div>
 
           {/* Social Links Quick Access */}
           <div className="flex items-center gap-3">
             <a 
-              href="https://github.com/ankit92190mi" 
+              href="https://github.com/ankit008-mishra" 
               target="_blank" 
               rel="noopener noreferrer" 
               referrerPolicy="no-referrer"
@@ -151,6 +160,26 @@ startxref
             >
               <Linkedin className="w-4.5 h-4.5" />
             </a>
+            <a 
+              href="https://instagram.com/your_username" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              referrerPolicy="no-referrer"
+              className="text-slate-400 hover:text-white transition-colors"
+              title="Instagram Profile"
+            >
+              <Instagram className="w-4.5 h-4.5" />
+            </a>
+            <a 
+              href="https://t.me/your_username" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              referrerPolicy="no-referrer"
+              className="text-slate-400 hover:text-white transition-colors"
+              title="Telegram Contact"
+            >
+              <Send className="w-4.5 h-4.5" />
+            </a>
           </div>
         </div>
       </nav>
@@ -159,6 +188,7 @@ startxref
       <main className="relative z-10 max-w-6xl mx-auto px-6 py-12 md:py-20 space-y-24 md:space-y-36">
         
         {/* HERO SECTION */}
+        <ScrollReveal>
         <section id="about-hero" className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Hero Left: Bio with 3D Depth */}
@@ -218,8 +248,10 @@ startxref
           </div>
 
         </section>
+        </ScrollReveal>
 
         {/* ACTIVE PROJECT SPOTLIGHT SECTION */}
+        <ScrollReveal delay={100}>
         <section id="current-project-section" className="space-y-10 scroll-mt-24">
           <div className="text-left space-y-2">
             <span className="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest block">
@@ -234,8 +266,10 @@ startxref
 
           <CurrentProject />
         </section>
+        </ScrollReveal>
 
         {/* CORE COMPETENCY GRID SECTION */}
+        <ScrollReveal delay={100}>
         <section id="skills-section" className="space-y-10 scroll-mt-24">
           <div className="text-left space-y-2">
             <span className="text-[10px] font-mono font-bold text-violet-500 uppercase tracking-widest block">
@@ -250,8 +284,10 @@ startxref
 
           <TechStack />
         </section>
+        </ScrollReveal>
 
         {/* INTERACTIVE EXPERIENCE TIMELINE SECTION */}
+        <ScrollReveal delay={100}>
         <section id="experience-section" className="space-y-10 scroll-mt-24">
           <div className="text-left space-y-2">
             <span className="text-[10px] font-mono font-bold text-indigo-500 uppercase tracking-widest block">
@@ -266,8 +302,10 @@ startxref
 
           <WorkTimeline />
         </section>
+        </ScrollReveal>
 
         {/* INTERACTIVE CONNECTION POINT */}
+        <ScrollReveal delay={100}>
         <section id="contact-section-anchor" className="space-y-12 scroll-mt-24 text-center">
           <div className="space-y-2">
             <span className="text-[10px] font-mono font-bold text-emerald-500 uppercase tracking-widest block">
@@ -285,6 +323,7 @@ startxref
 
           <ContactSection />
         </section>
+        </ScrollReveal>
 
       </main>
 
@@ -301,5 +340,6 @@ startxref
         </div>
       </footer>
     </div>
+    </>
   );
 }

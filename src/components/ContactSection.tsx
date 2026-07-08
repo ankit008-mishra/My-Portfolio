@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Send, RotateCw, CheckCircle, ShieldAlert, Wifi } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, RotateCw, CheckCircle, ShieldAlert, Wifi, Instagram } from 'lucide-react';
 import ProfileAvatar from './ProfileAvatar';
 
 export default function ContactSection() {
@@ -11,7 +11,7 @@ export default function ContactSection() {
   const socials = [
     {
       name: 'GitHub',
-      url: 'https://github.com/ankit92190mi',
+      url: 'https://github.com/ankit008-mishra',
       icon: <Github className="w-5 h-5" />,
       color: 'hover:text-blue-400 hover:border-blue-500/50 hover:bg-blue-950/20',
     },
@@ -23,9 +23,21 @@ export default function ContactSection() {
     },
     {
       name: 'Email',
-      url: 'mailto:ankit92190mi@gmail.com',
+      url: 'mailto:conatct.ankit0mi@gmail.com',
       icon: <Mail className="w-5 h-5" />,
       color: 'hover:text-violet-400 hover:border-violet-500/50 hover:bg-violet-950/20',
+    },
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/your_username',
+      icon: <Instagram className="w-5 h-5" />,
+      color: 'hover:text-pink-400 hover:border-pink-500/50 hover:bg-pink-950/20',
+    },
+    {
+      name: 'Telegram',
+      url: 'https://t.me/your_username',
+      icon: <Send className="w-5 h-5" />,
+      color: 'hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-950/20',
     },
   ];
 
