@@ -11,7 +11,7 @@ export default function ContactSection() {
   const socials = [
     {
       name: 'GitHub',
-      url: 'https://github.com/ankit92190mi',
+      url: 'https://github.com/ankit008-mishra',
       icon: <Github className="w-5 h-5" />,
       color: 'hover:text-blue-400 hover:border-blue-500/50 hover:bg-blue-950/20',
     },
